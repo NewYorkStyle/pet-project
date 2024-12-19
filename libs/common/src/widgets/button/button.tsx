@@ -3,14 +3,16 @@ import {TAnalyticsProps, sendEvent} from '../../shared';
 import {E_ANALYTIC_EVENTS} from '../../shared/constants';
 
 /**
- * @prop {Omit<TAnalyticsProps, 'event'>} [analyticProps] Данные для аналитики.
+ * @prop {TAnalyticsProps} [analyticProps] Данные для аналитики.
  * @prop {() => void} onClick Обработчик клика.
+ * @prop {boolean} [disabled] Обработчик клика.
  */
 type TProps = {
-  analyticProps?: Omit<TAnalyticsProps, 'event'>;
+  analyticProps?: TAnalyticsProps;
   onClick: () => void;
   children?: string;
   className?: string;
+  disabled?: boolean;
 };
 
 /**
@@ -20,6 +22,7 @@ export const Button = ({
   analyticProps,
   children,
   className,
+  disabled,
   onClick,
 }: TProps) => {
   const handleClick = () => {
@@ -33,7 +36,7 @@ export const Button = ({
   };
 
   return (
-    <ButtonView className={className} onClick={handleClick}>
+    <ButtonView className={className} onClick={handleClick} disabled={disabled}>
       {children}
     </ButtonView>
   );

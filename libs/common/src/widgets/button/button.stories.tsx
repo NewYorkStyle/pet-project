@@ -4,11 +4,16 @@ import noop from 'lodash/noop';
 
 type ButtonPropsAndCustomArgs = React.ComponentProps<typeof Button> & {
   text?: string;
+  disabled?: boolean;
 };
 
 const meta: Meta<ButtonPropsAndCustomArgs> = {
   component: Button,
-  render: ({text}) => <Button onClick={noop}>{text}</Button>,
+  render: ({disabled, text}) => (
+    <Button onClick={noop} disabled={disabled}>
+      {text}
+    </Button>
+  ),
 };
 export default meta;
 
@@ -36,10 +41,10 @@ export const ButtonStory: StoryObj = {
     },
     text: {
       control: 'text',
-      defaultValue: 'Текст',
     },
   },
   args: {
+    disabled: false,
     text: 'Текст кнопки',
   },
 };
