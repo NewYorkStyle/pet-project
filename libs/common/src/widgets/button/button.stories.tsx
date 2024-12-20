@@ -36,7 +36,6 @@ export const ButtonStory: StoryObj = {
     },
     text: {
       control: 'text',
-      defaultValue: 'Текст',
     },
   },
   args: {
