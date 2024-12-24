@@ -1,21 +1,28 @@
-import {Button as PrimeButton} from 'primereact/button';
+import {Button} from 'primereact/button';
 
 /**
  * @prop {() => void} onClick Обработчик клика.
+ * @prop {boolean} [disabled] Обработчик клика.
  */
 type TProps = {
   onClick: () => void;
   children?: string;
   className?: string;
+  disabled?: boolean;
 };
 
 /**
  * Компонент обёртка над Primereact для отображения кнопки.
  */
-export const ButtonView = ({children, className, onClick}: TProps) => {
+export const ButtonView = ({
+  children,
+  className,
+  disabled,
+  onClick,
+}: TProps) => {
   return (
-    <PrimeButton className={className} onClick={onClick}>
+    <Button className={className} onClick={onClick} disabled={disabled}>
       {children}
-    </PrimeButton>
+    </Button>
   );
 };

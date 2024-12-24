@@ -10,7 +10,7 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <StrictMode>
-    <PrimeReactProvider>
+    <PrimeReactProvider value={{ripple: true}}>
       <BrowserRouter>
         <App />
       </BrowserRouter>
